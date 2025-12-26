@@ -1,0 +1,57 @@
+// Importar la funcionalidad de theming de Angular Material.
+@use '@angular/material' as mat;
+
+// Incluir los estilos base del core de Material (esto es requerido).
+@include mat.core();
+
+// Definir un tema. Elige los colores que mejor se adapten a tu aplicación.
+// Aquí usamos el tema predefinido Indigo & Pink.
+$clinica-primary: mat.define-palette(mat.$indigo-palette);
+$clinica-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$clinica-theme: mat.define-light-theme((
+  color: (
+    primary: $clinica-primary,
+    accent: $clinica-accent,
+  )
+));
+
+// Incluir el tema en la aplicación.
+@include mat.all-component-themes($clinica-theme);
+
+/* Estilos Globales */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Estilos de utilidad para los contenedores de los componentes */
+.container {
+  padding: 24px;
+  margin: 24px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024, 0 3px 14px 2px #0000001f;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #666;
+}

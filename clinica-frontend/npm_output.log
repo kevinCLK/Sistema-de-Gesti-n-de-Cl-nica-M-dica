@@ -1,0 +1,21 @@
+
+> clinica-frontend@0.0.0 start
+> ng serve
+
+❯ Building...
+✔ Building...
+Application bundle generation failed. [5.237 seconds] - 2025-12-26T22:07:38.243Z
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mUndefined function.
+  ╷
+9 │ $clinica-primary: mat.define-palette(mat.$indigo-palette);
+  │                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+  src/styles.scss 9:19  root stylesheet[0m [1m[35m[plugin angular-sass][0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/styles.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~[0m
+
+
+Watch mode enabled. Watching for file changes...
