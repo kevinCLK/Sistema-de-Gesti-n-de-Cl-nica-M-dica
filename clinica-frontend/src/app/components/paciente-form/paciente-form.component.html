@@ -1,0 +1,71 @@
+<div class="container mat-elevation-z8">
+  <div class="header">
+    <h1>{{ isEditMode ? 'Editar Paciente' : 'Registrar Nuevo Paciente' }}</h1>
+  </div>
+
+  <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <!-- Campo Nombre -->
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" required>
+        <mat-error *ngIf="pacienteForm.get('nombre')?.hasError('required')">
+          El nombre es requerido.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Apellidos -->
+      <mat-form-field appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input matInput formControlName="apellidos" required>
+        <mat-error *ngIf="pacienteForm.get('apellidos')?.hasError('required')">
+          Los apellidos son requeridos.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo CI -->
+      <mat-form-field appearance="fill">
+        <mat-label>Cédula de Identidad</mat-label>
+        <input matInput formControlName="ci" required>
+        <mat-error *ngIf="pacienteForm.get('ci')?.hasError('required')">
+          El CI es requerido.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Fecha de Nacimiento -->
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Campo Celular -->
+      <mat-form-field appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input matInput formControlName="celular">
+      </mat-form-field>
+
+      <!-- Campo Correo -->
+      <mat-form-field appearance="fill">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput type="email" formControlName="correo">
+        <mat-error *ngIf="pacienteForm.get('correo')?.hasError('email')">
+          Por favor, introduce un correo válido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Acciones del Formulario -->
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="pacienteForm.invalid">
+        <mat-icon>save</mat-icon>
+        <span>Guardar</span>
+      </button>
+      <button mat-stroked-button type="button" (click)="cancel()">
+        <mat-icon>cancel</mat-icon>
+        <span>Cancelar</span>
+      </button>
+    </div>
+  </form>
+</div>
