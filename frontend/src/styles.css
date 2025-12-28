@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*
+TODO: La configuración de estilos de PrimeNG v17+ ha cambiado significativamente.
+Los intentos de importar los temas a través de angular.json y @import fallaron
+debido a que la nueva estructura del paquete en node_modules no coincide con la documentación
+y parece requerir un enfoque diferente (posiblemente a través de 'exports' en package.json
+que el sistema de build de Angular no resuelve correctamente para los CSS).
+Es necesario investigar la forma canónica de importar los estilos de @primeuix/styles
+para que tanto la aplicación como las pruebas puedan resolverlos.
+*/
+
+@import "tailwindcss";
